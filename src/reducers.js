@@ -52,30 +52,3 @@ export default function(state = {}, action) {
     }
     return state;
 }
-
-// // state
-// {}
-//
-// // added action
-// {
-//     type: "SET_DURATION"
-//     data: {size_gb : 2, duration : 12, prepaid : true, card_number: "1233455" }
-// }
-//
-// // state
-// {
-//     data: {size_gb : 2, duration : 12, prepaid : true, card_number: "1233455" }
-// }
-//
-// // action
-//
-// {
-//     type: "CHANGE_SOMETHING"
-//     name: ""
-// }
-//
-// // add to state
-//
-// {
-//     data: {size_gb : 2, duration : 12, prepaid : true, card_number: "1233455" }
-// }
