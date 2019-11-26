@@ -1,13 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
+import { App } from "./app";
+import { Provider } from "react-redux";
+import { createStore, applyMiddleware } from "redux";
+import reduxPromise from "redux-promise";
+import reducer from "./reducers";
+const store = createStore(reducer, applyMiddleware(reduxPromise));
 
-ReactDOM.render(
-    <HelloWorld />,
-    document.querySelector('main')
+let elem = (
+    <Provider store={store}>
+        <App />
+    </Provider>
 );
 
-function HelloWorld() {
-    return (
-        <div>Hello, World!</div>
-    );
-}
+ReactDOM.render(elem, document.querySelector("main"));
