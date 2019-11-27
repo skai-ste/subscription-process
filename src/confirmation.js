@@ -10,11 +10,43 @@ export function Confirmation() {
     const state = useSelector(state => state);
     console.log("state", state);
 
+    const title = () => {
+        return (
+            <div>
+                <p>{`You selected ${state.size_gb}GB of space for ${
+                    state.duration
+                } months`}</p>
+            </div>
+        );
+    };
+
+    const payment = () => {
+        return (
+            <div>
+                <p>{`Upfront payment: ${
+                    state.upfront_payment ? "yes" : "no"
+                }`}</p>
+            </div>
+        );
+    };
+
+    const price = () => {
+        var totalPrice = state.size_gb * state.duration * 2.0;
+        if (state.upfront_payment == "true") {
+            totalPrice *= 0.9;
+        }
+        return (
+            <div>
+                <p>{`Price in total $${totalPrice}`}</p>
+            </div>
+        );
+    };
+
     return (
         <div>
-            <div>
-                <h1>HIIIIIII</h1>
-            </div>
+            {title()}
+            {payment()}
+            {price()}
             <input
                 defaultChecked={state.agreed_terms}
                 type="checkbox"
