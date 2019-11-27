@@ -42,6 +42,19 @@ export function Confirmation() {
         );
     };
 
+    const onSave = e => {
+        e.preventDefault();
+
+        axios
+            .post("/post", state)
+            .then(res => {
+                console.log("res", res.data);
+            })
+            .catch(err => {
+                console.log("ERROR", err);
+            });
+    };
+
     return (
         <div>
             {title()}
@@ -57,7 +70,9 @@ export function Confirmation() {
                 }}
             />
             I Agree Terms & Coditions
-            <button disabled={!state.agreed_terms}>Confirm</button>
+            <button disabled={!state.agreed_terms} onClick={onSave}>
+                Confirm
+            </button>
         </div>
     );
 }
