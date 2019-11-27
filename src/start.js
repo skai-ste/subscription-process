@@ -7,9 +7,9 @@ import reduxPromise from "redux-promise";
 import reducer from "./reducers";
 
 const startingState = {
-    duration: "12 months",
-    size_gb: "5",
-    upfront_payment: "no"
+    duration: 12,
+    size_gb: 5,
+    upfront_payment: false
 };
 
 const store = createStore(

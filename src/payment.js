@@ -16,9 +16,10 @@ export function Payment() {
             <form>
                 <input
                     value={state.card_number}
-                    type="text"
+                    type="tel"
                     name="card_number"
-                    placeholder="card number"
+                    maxLength="19"
+                    placeholder="Card Number"
                     autoComplete="off"
                     required
                     onChange={e => {
@@ -28,9 +29,10 @@ export function Payment() {
                 />
                 <input
                     value={state.card_exp_date}
-                    type="text"
+                    type="tel"
                     name="card expiration date"
-                    placeholder="card expiration date"
+                    maxLength="7"
+                    placeholder="MM / YY"
                     autoComplete="off"
                     required
                     onChange={e => {
@@ -40,9 +42,10 @@ export function Payment() {
                 />
                 <input
                     value={state.card_sec_code}
-                    type="text"
+                    type="tel"
                     name="card security code"
-                    placeholder="card security code"
+                    maxLength="4"
+                    placeholder="CVC"
                     autoComplete="off"
                     required
                     onChange={e => {

@@ -23,9 +23,9 @@ export function Subscription() {
                         dispatch(setDuration(e.target.value));
                     }}
                 >
-                    <option value="3 months">3 months</option>
-                    <option value="6 months">6 months</option>
-                    <option value="12 months">12 months</option>
+                    <option value="3">3 months</option>
+                    <option value="6">6 months</option>
+                    <option value="12">12 months</option>
                 </select>
 
                 <select
@@ -54,8 +54,8 @@ export function Subscription() {
                         dispatch(setUpfrontPayment(e.target.value));
                     }}
                 >
-                    <option value="yes">yes</option>
-                    <option value="no">no</option>
+                    <option value="true">yes</option>
+                    <option value="false">no</option>
                 </select>
             </form>
             <div>
