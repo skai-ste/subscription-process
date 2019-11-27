@@ -12,6 +12,7 @@ export function Subscription() {
 
     return (
         <div>
+            <h1>Select :</h1>
             <form>
                 <select
                     value={state.duration}

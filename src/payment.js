@@ -3,71 +3,56 @@ import { withRouter, BrowserRouter, Route, Link } from "react-router-dom";
 import { Redirect, browserHistory } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "./axios";
-import { setLastName, setFirstName, setEmail, setAddress } from "./actions";
+import { setCardNumber, setCardExpDate, setCardSecurityCode } from "./actions";
 
-export function Info() {
+export function Payment() {
     const dispatch = useDispatch();
     const state = useSelector(state => state);
     console.log("state", state);
 
     return (
         <div>
-            <h1>Please fill in :</h1>
+            <h1>Add your payment information :</h1>
             <form>
                 <input
-                    value={state.last_name}
+                    value={state.card_number}
                     type="text"
-                    name="last"
-                    placeholder="last name"
+                    name="card_number"
+                    placeholder="card number"
                     autoComplete="off"
                     required
                     onChange={e => {
                         e.preventDefault();
-                        dispatch(setLastName(e.target.value));
+                        dispatch(setCardNumber(e.target.value));
                     }}
                 />
                 <input
-                    value={state.first_name}
+                    value={state.card_exp_date}
                     type="text"
-                    name="first"
-                    placeholder="first name"
+                    name="card expiration date"
+                    placeholder="card expiration date"
                     autoComplete="off"
                     required
                     onChange={e => {
                         e.preventDefault();
-                        dispatch(setFirstName(e.target.value));
+                        dispatch(setCardExpDate(e.target.value));
                     }}
                 />
                 <input
-                    value={state.email}
-                    type="email"
-                    name="email"
-                    placeholder="email"
-                    autoComplete="off"
-                    required
-                    onChange={e => {
-                        e.preventDefault();
-                        dispatch(setEmail(e.target.value));
-                    }}
-                />
-                <input
-                    value={state.address}
+                    value={state.card_sec_code}
                     type="text"
-                    name="address"
-                    placeholder="address"
+                    name="card security code"
+                    placeholder="card security code"
                     autoComplete="off"
                     required
                     onChange={e => {
                         e.preventDefault();
-                        dispatch(setAddress(e.target.value));
+                        dispatch(setCardSecurityCode(e.target.value));
                     }}
                 />
             </form>
             <div>
-                <Link to="/">PREV</Link>
-            </div>
-            <div>
-                <Link to="/payment">NEXT</Link>
+                <Link to="/info">PREV</Link>
             </div>
         </div>
     );
