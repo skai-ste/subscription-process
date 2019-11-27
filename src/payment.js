@@ -57,6 +57,9 @@ export function Payment() {
             <div>
                 <Link to="/info">PREV</Link>
             </div>
+            <div>
+                <Link to="/confirmation">NEXT</Link>
+            </div>
         </div>
     );
 }

@@ -49,6 +49,11 @@ export default function(state = {}, action) {
             ...state,
             card_sec_code: action.data
         };
+    } else if (action.type == "AGREED_TERMS") {
+        state = {
+            ...state,
+            agreed_terms: action.data
+        };
     }
     return state;
 }

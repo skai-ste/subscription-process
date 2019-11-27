@@ -69,3 +69,10 @@ export async function setCardSecurityCode(data) {
         data: data
     };
 }
+
+export async function agreedTerms(data) {
+    return {
+        type: "AGREED_TERMS",
+        data: data
+    };
+}
