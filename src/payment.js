@@ -10,6 +10,14 @@ export function Payment() {
     const state = useSelector(state => state);
     console.log("state", state);
 
+    const allowNext =
+        state.card_number &&
+        state.card_number.length > 0 &&
+        state.card_exp_date &&
+        state.card_exp_date.length > 0 &&
+        state.card_sec_code &&
+        state.card_sec_code.length > 0;
+
     return (
         <div>
             <h1>Add your payment information :</h1>
@@ -58,7 +66,7 @@ export function Payment() {
                 <Link to="/info">PREV</Link>
             </div>
             <div>
-                <Link to="/confirmation">NEXT</Link>
+                {allowNext ? <Link to="/confirmation">NEXT</Link> : <div />}
             </div>
         </div>
     );

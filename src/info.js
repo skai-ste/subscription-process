@@ -10,6 +10,16 @@ export function Info() {
     const state = useSelector(state => state);
     console.log("state", state);
 
+    const allowNext =
+        state.last_name &&
+        state.last_name.length > 0 &&
+        state.first_name &&
+        state.first_name.length > 0 &&
+        state.email &&
+        state.email.length > 0 &&
+        state.address &&
+        state.address.length > 0;
+
     return (
         <div>
             <h1>Please fill in :</h1>
@@ -66,9 +76,7 @@ export function Info() {
             <div>
                 <Link to="/">PREV</Link>
             </div>
-            <div>
-                <Link to="/payment">NEXT</Link>
-            </div>
+            <div>{allowNext ? <Link to="/payment">NEXT</Link> : <div />}</div>
         </div>
     );
 }
