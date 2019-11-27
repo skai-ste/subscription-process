@@ -25,7 +25,7 @@ export function Confirmation() {
                 }}
             />
             I Agree Terms & Coditions
-            <button>Confirm</button>
+            <button disabled={!state.agreed_terms}>Confirm</button>
         </div>
     );
 }
