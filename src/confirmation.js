@@ -4,11 +4,34 @@ import { Redirect, browserHistory } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "./axios";
 import { agreedTerms } from "./actions";
+import { makeStyles } from "@material-ui/core/styles";
+import Button from "@material-ui/core/Button";
+import Paper from "@material-ui/core/Paper";
+import Grid from "@material-ui/core/Grid";
+import FormControl from "@material-ui/core/FormControl";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import Checkbox from "@material-ui/core/Checkbox";
+
+const useStyles = makeStyles(theme => ({
+    root: {
+        display: "flex",
+        flexWrap: "wrap",
+        justifyContent: "space-around",
+        backgroundColor: theme.palette.background.paper,
+        marginTop: theme.spacing(10)
+    },
+    paper: {
+        padding: theme.spacing(2),
+        textAlign: "center",
+        color: theme.palette.text.secondary
+    }
+}));
 
 export function Confirmation() {
     const dispatch = useDispatch();
     const state = useSelector(state => state);
     console.log("state", state);
+    const classes = useStyles();
 
     const title = () => {
         return (
@@ -56,23 +79,40 @@ export function Confirmation() {
     };
 
     return (
-        <div>
-            {title()}
-            {payment()}
-            {price()}
-            <input
-                defaultChecked={state.agreed_terms}
-                type="checkbox"
-                name="terms"
-                required
-                onClick={e => {
-                    dispatch(agreedTerms(e.target.checked));
-                }}
-            />
-            I Agree Terms & Coditions
-            <button disabled={!state.agreed_terms} onClick={onSave}>
-                Confirm
-            </button>
+        <div className={classes.root}>
+            <Grid container spacing={3}>
+                <Grid item xs={12} className={classes.paper}>
+                    <h1>{title()}</h1>
+                </Grid>
+                <Grid item xs={12} className={classes.paper}>
+                    <h3>{payment()}</h3>
+                </Grid>
+                <Grid item xs={12} className={classes.paper}>
+                    <h2>{price()}</h2>
+                </Grid>
+                <Grid item xs={12} className={classes.paper}>
+                    <FormControlLabel
+                        control={
+                            <Checkbox
+                                checked={state.agreed_terms}
+                                onChange={e => {
+                                    dispatch(agreedTerms(e.target.checked));
+                                }}
+                            />
+                        }
+                        label="I Agree Terms & Coditions"
+                    />
+                </Grid>
+                <Grid item xs={12} className={classes.paper}>
+                    <Button
+                        variant="contained"
+                        disabled={!state.agreed_terms}
+                        onClick={onSave}
+                    >
+                        Confirm
+                    </Button>
+                </Grid>
+            </Grid>
         </div>
     );
 }

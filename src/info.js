@@ -32,6 +32,10 @@ const useStyles = makeStyles(theme => ({
         padding: theme.spacing(2),
         textAlign: "center",
         color: theme.palette.text.secondary
+    },
+    textField: {
+        width: 260,
+        height: 65
     }
 }));
 
@@ -65,6 +69,7 @@ export function Info() {
                             type="text"
                             name="last"
                             placeholder="last name"
+                            className={classes.textField}
                             autoComplete="off"
                             required
                             onChange={e => {
@@ -78,6 +83,7 @@ export function Info() {
                             type="email"
                             name="email"
                             placeholder="email"
+                            className={classes.textField}
                             autoComplete="off"
                             required
                             onChange={e => {
@@ -93,6 +99,7 @@ export function Info() {
                             type="text"
                             name="first"
                             placeholder="first name"
+                            className={classes.textField}
                             autoComplete="off"
                             required
                             onChange={e => {

@@ -35,8 +35,8 @@ const useStyles = makeStyles(theme => ({
     },
     textField: {
         margin: theme.spacing(1),
-        width: 200,
-        height: 40
+        width: 280,
+        height: 50
     }
 }));
 
@@ -68,6 +68,7 @@ export function Payment() {
                             name="card_number"
                             maxLength="19"
                             variant="outlined"
+                            className={classes.textField}
                             placeholder="Card Number"
                             autoComplete="off"
                             required
@@ -82,6 +83,7 @@ export function Payment() {
                             name="card expiration date"
                             maxLength="7"
                             variant="outlined"
+                            className={classes.textField}
                             placeholder="MM / YY"
                             autoComplete="off"
                             required
@@ -96,6 +98,7 @@ export function Payment() {
                             name="card security code"
                             maxLength="4"
                             variant="outlined"
+                            className={classes.textField}
                             placeholder="CVC"
                             autoComplete="off"
                             required
