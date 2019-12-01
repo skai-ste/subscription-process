@@ -10,16 +10,12 @@ import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField";
 import FormControl from "@material-ui/core/FormControl";
-import Select from "@material-ui/core/Select";
 
 const useStyles = makeStyles(theme => ({
     formControl: {
         margin: theme.spacing(3),
         minWidth: 220,
         marginTop: theme.spacing(10)
-    },
-    selectEmpty: {
-        marginTop: theme.spacing(2)
     },
     root: {
         display: "flex",
@@ -59,7 +55,7 @@ export function Info() {
         <div className={classes.root}>
             <Grid container spacing={3}>
                 <Grid item xs={12} className={classes.paper}>
-                    <h1>Please fill more details :</h1>
+                    <h1>Please fill more details</h1>
                 </Grid>
                 <Grid item xs={12} className={classes.paper}>
                     <FormControl className={classes.formControl}>
@@ -126,9 +122,13 @@ export function Info() {
                     <Button>
                         <Link to="/">PREV</Link>
                     </Button>
-                    <Button>
-                        {allowNext ? <Link to="/payment">NEXT</Link> : <div />}
-                    </Button>
+                    {allowNext ? (
+                        <Button>
+                            <Link to="/payment">NEXT</Link>
+                        </Button>
+                    ) : (
+                        <div />
+                    )}
                 </Grid>
             </Grid>
         </div>

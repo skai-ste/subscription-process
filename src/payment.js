@@ -18,9 +18,6 @@ const useStyles = makeStyles(theme => ({
         minWidth: 220,
         marginTop: theme.spacing(10)
     },
-    selectEmpty: {
-        marginTop: theme.spacing(2)
-    },
     root: {
         display: "flex",
         flexWrap: "wrap",
@@ -29,7 +26,6 @@ const useStyles = makeStyles(theme => ({
         marginTop: theme.spacing(10)
     },
     paper: {
-        padding: theme.spacing(2),
         textAlign: "center",
         color: theme.palette.text.secondary
     },
@@ -58,15 +54,14 @@ export function Payment() {
         <div className={classes.root}>
             <Grid container spacing={3}>
                 <Grid item xs={12} className={classes.paper}>
-                    <h1>Add your payment information :</h1>
+                    <h1>Add your payment information</h1>
                 </Grid>
                 <Grid item xs={12} className={classes.paper}>
                     <FormControl className={classes.formControl}>
                         <TextField
                             value={state.card_number}
                             type="tel"
-                            name="card_number"
-                            maxLength="19"
+                            name="card number"
                             variant="outlined"
                             className={classes.textField}
                             placeholder="Card Number"
@@ -81,10 +76,9 @@ export function Payment() {
                             value={state.card_exp_date}
                             type="tel"
                             name="card expiration date"
-                            maxLength="7"
                             variant="outlined"
                             className={classes.textField}
-                            placeholder="MM / YY"
+                            placeholder="MM YY"
                             autoComplete="off"
                             required
                             onChange={e => {
@@ -96,7 +90,6 @@ export function Payment() {
                             value={state.card_sec_code}
                             type="tel"
                             name="card security code"
-                            maxLength="4"
                             variant="outlined"
                             className={classes.textField}
                             placeholder="CVC"
@@ -113,13 +106,14 @@ export function Payment() {
                     <Button>
                         <Link to="/info">PREV</Link>
                     </Button>
-                    <Button>
-                        {allowNext ? (
+                    {allowNext ? (
+                        <Button>
+                            {" "}
                             <Link to="/confirmation">NEXT</Link>
-                        ) : (
-                            <div />
-                        )}
-                    </Button>
+                        </Button>
+                    ) : (
+                        <div />
+                    )}
                 </Grid>
             </Grid>
         </div>

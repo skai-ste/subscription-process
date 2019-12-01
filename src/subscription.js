@@ -20,9 +20,6 @@ const useStyles = makeStyles(theme => ({
         minWidth: 220,
         marginTop: theme.spacing(10)
     },
-    selectEmpty: {
-        marginTop: theme.spacing(2)
-    },
     root: {
         display: "flex",
         flexWrap: "wrap",
@@ -47,7 +44,7 @@ export function Subscription() {
         <div className={classes.root}>
             <Grid container spacing={3}>
                 <Grid item xs={12} className={classes.paper}>
-                    <h1>Subscription order process in 4 steps:</h1>
+                    <h1>Subscription order process in 4 steps</h1>
                 </Grid>
                 <Grid item xs={12} className={classes.paper}>
                     <FormControl className={classes.formControl}>
