@@ -1,5 +1,3 @@
-# subscription-process
-
 # Overview
 
 Simple app with React+Redux for making subscription process.
@@ -22,8 +20,8 @@ React, Redux, Material-UI library
 
 You should run these two commands in separate Terminal windows :
 
--   node bundle-server.js
+-   `node bundle-server.js`
 
--   node .
+-   `node .`
 
 and the website will be accessible on the localhost:8080
