@@ -22,14 +22,17 @@ const useStyles = makeStyles(theme => ({
     },
     paper: {
         textAlign: "center",
-        color: theme.palette.text.secondary
+        color: theme.palette.text.secondary,
+        marginTop: theme.spacing(6)
+    },
+    space: {
+        marginTop: theme.spacing(2)
     }
 }));
 
 export function Confirmation() {
     const dispatch = useDispatch();
     const state = useSelector(state => state);
-    console.log("state", state);
     const classes = useStyles();
 
     const title = () => {
@@ -70,7 +73,6 @@ export function Confirmation() {
         axios
             .post("/post", state)
             .then(res => {
-                console.log("res", res.data);
                 dispatch(confirmedButton(true));
             })
             .catch(err => {
@@ -85,39 +87,40 @@ export function Confirmation() {
                     <h1>{title()}</h1>
                 </Grid>
                 <Grid item xs={12} className={classes.paper}>
-                    <h3>{payment()}</h3>
-                </Grid>
-                <Grid item xs={12} className={classes.paper}>
-                    <h2>{price()}</h2>
-                </Grid>
-                <Grid item xs={12} className={classes.paper}>
-                    <FormControlLabel
-                        control={
-                            <Checkbox
-                                checked={state.agreed_terms}
-                                onChange={e => {
-                                    dispatch(agreedTerms(e.target.checked));
-                                }}
-                            />
-                        }
-                        label="I Agree Terms & Coditions"
-                    />
-                </Grid>
-                <Grid item xs={12} className={classes.paper}>
-                    <Button
-                        variant="contained"
-                        disabled={!state.agreed_terms}
-                        onClick={onSave}
-                    >
-                        Confirm
-                    </Button>
-                </Grid>
-                <Grid item xs={12} className={classes.paper}>
                     <div>
                         {state.confirmed_button ? (
-                            <h4> Thank you! Your order was submitted.</h4>
+                            <h3> Thank you! Your order was submitted.</h3>
                         ) : (
-                            <div />
+                            <div>
+                                <h3>{payment()}</h3>
+                                <h2>{price()}</h2>
+                                <Grid item xs={12} className={classes.paper}>
+                                    <FormControlLabel
+                                        control={
+                                            <Checkbox
+                                                checked={state.agreed_terms}
+                                                onChange={e => {
+                                                    dispatch(
+                                                        agreedTerms(
+                                                            e.target.checked
+                                                        )
+                                                    );
+                                                }}
+                                            />
+                                        }
+                                        label="I Agree Terms & Coditions"
+                                    />
+                                </Grid>
+                                <Grid item xs={12} className={classes.space}>
+                                    <Button
+                                        variant="contained"
+                                        disabled={!state.agreed_terms}
+                                        onClick={onSave}
+                                    >
+                                        Confirm
+                                    </Button>
+                                </Grid>
+                            </div>
                         )}
                     </div>
                 </Grid>

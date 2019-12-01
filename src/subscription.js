@@ -37,7 +37,6 @@ const useStyles = makeStyles(theme => ({
 export function Subscription() {
     const dispatch = useDispatch();
     const state = useSelector(state => state);
-    console.log("state", state);
     const classes = useStyles();
 
     return (

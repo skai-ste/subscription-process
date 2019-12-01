@@ -39,7 +39,6 @@ const useStyles = makeStyles(theme => ({
 export function Payment() {
     const dispatch = useDispatch();
     const state = useSelector(state => state);
-    console.log("state", state);
     const classes = useStyles();
 
     const allowNext =

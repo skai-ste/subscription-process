@@ -38,7 +38,6 @@ const useStyles = makeStyles(theme => ({
 export function Info() {
     const dispatch = useDispatch();
     const state = useSelector(state => state);
-    console.log("state", state);
     const classes = useStyles();
 
     const allowNext =
