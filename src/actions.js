@@ -76,3 +76,10 @@ export async function agreedTerms(data) {
         data: data
     };
 }
+
+export async function confirmedButton(data) {
+    return {
+        type: "CONFIRMED",
+        data: data
+    };
+}

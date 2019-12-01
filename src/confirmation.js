@@ -3,7 +3,7 @@ import { withRouter, BrowserRouter, Route, Link } from "react-router-dom";
 import { Redirect, browserHistory } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "./axios";
-import { agreedTerms } from "./actions";
+import { agreedTerms, confirmedButton } from "./actions";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import Paper from "@material-ui/core/Paper";
@@ -21,7 +21,6 @@ const useStyles = makeStyles(theme => ({
         marginTop: theme.spacing(10)
     },
     paper: {
-        padding: theme.spacing(2),
         textAlign: "center",
         color: theme.palette.text.secondary
     }
@@ -72,6 +71,7 @@ export function Confirmation() {
             .post("/post", state)
             .then(res => {
                 console.log("res", res.data);
+                dispatch(confirmedButton(true));
             })
             .catch(err => {
                 console.log("ERROR", err);
@@ -111,6 +111,15 @@ export function Confirmation() {
                     >
                         Confirm
                     </Button>
+                </Grid>
+                <Grid item xs={12} className={classes.paper}>
+                    <div>
+                        {state.confirmed_button ? (
+                            <h4> Thank you! Your order was submitted.</h4>
+                        ) : (
+                            <div />
+                        )}
+                    </div>
                 </Grid>
             </Grid>
         </div>

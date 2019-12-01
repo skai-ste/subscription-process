@@ -54,6 +54,11 @@ export default function(state = {}, action) {
             ...state,
             agreed_terms: action.data
         };
+    } else if (action.type == "CONFIRMED") {
+        state = {
+            ...state,
+            confirmed_button: action.data
+        };
     }
     return state;
 }
